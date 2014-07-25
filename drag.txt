@@ -1,0 +1,46 @@
+void setup() {
+  size(300,300);
+}
+
+
+int col = 0;
+
+void mousePressed(){
+  println("mousePressed");
+}
+void mouseDragged(){
+  println("mouseDragged");
+}
+void mouseReleased(){
+  println("mouseReleased");
+}
+
+
+ 
+ float x = 100;
+ float y = 100;
+void draw(){
+ background(255);
+ 
+  
+  float r = 100;
+  float x_po = mouseX - x;
+  float y_po = mouseY - y;
+
+ if(x_po*x_po + y_po*y_po < r*r )
+ {
+   col = 125;
+   if(mousePressed){
+   x = mouseX;
+   y = mouseY;
+   }
+ }
+ else
+ {
+   col = 0;
+ }
+ fill(255,col,col);
+ ellipse(x,y,2*r,2*r);
+ line(x,y,mouseX,mouseY);
+}
+
